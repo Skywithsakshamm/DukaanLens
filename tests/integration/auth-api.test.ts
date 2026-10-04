@@ -1,15 +1,15 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import bcrypt from 'bcryptjs';
 import { runMigrations } from '../../src/database/migrations';
 import { AuthService } from '../../src/server/auth/auth.service';
 
 describe('Authentication & Session Management', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let authService: AuthService;
 
   beforeEach(() => {
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     authService = new AuthService(db);
 

@@ -1,18 +1,18 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import { runMigrations } from '../../src/database/migrations';
 import { ProductService } from '../../src/server/products/product.service';
 import { ReorderService } from '../../src/server/reorder/reorder.service';
 import { InventoryService } from '../../src/server/inventory/inventory.service';
 
 describe('Deterministic Reorder Engine', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let prodService: ProductService;
   let reorderService: ReorderService;
   let invService: InventoryService;
 
   beforeEach(() => {
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     prodService = new ProductService(db);
     reorderService = new ReorderService(db);

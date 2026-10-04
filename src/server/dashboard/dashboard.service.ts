@@ -1,5 +1,4 @@
-import { DatabaseSync } from 'node:sqlite';
-import { getDb } from '../../database/connection';
+import { DatabaseSync, getDb } from '../../database/connection';
 import { DashboardMetrics } from '../../shared/types';
 import { inventoryService } from '../inventory/inventory.service';
 import { invoiceService } from '../invoices/invoice.service';

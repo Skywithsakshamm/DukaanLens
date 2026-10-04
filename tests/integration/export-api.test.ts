@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import { runMigrations } from '../../src/database/migrations';
 import { ProductService } from '../../src/server/products/product.service';
 import { ExportService } from '../../src/server/export/export.service';
 
 describe('Data Export & Backup Services', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let prodService: ProductService;
   let exportService: ExportService;
 
   beforeEach(() => {
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     prodService = new ProductService(db);
     exportService = new ExportService(db);

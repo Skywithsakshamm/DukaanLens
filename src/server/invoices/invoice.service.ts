@@ -1,8 +1,7 @@
 import crypto from 'node:crypto';
 import path from 'node:path';
 import fs from 'node:fs';
-import { DatabaseSync } from 'node:sqlite';
-import { getDb, runTransaction, getUploadsDir } from '../../database/connection';
+import { DatabaseSync, getDb, runTransaction, getUploadsDir } from '../../database/connection';
 import { Invoice, InvoiceItem, InvoiceStatus, MatchStatus } from '../../shared/types';
 import { InvoiceRow, InvoiceItemRow, SupplierRow } from '../../database/types';
 import { toPaise } from '../../shared/formatters';

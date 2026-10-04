@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import { runMigrations } from '../../src/database/migrations';
 import { ProductService } from '../../src/server/products/product.service';
 import { InventoryService } from '../../src/server/inventory/inventory.service';
@@ -8,7 +8,7 @@ import { ReorderService } from '../../src/server/reorder/reorder.service';
 import { AssistantService } from '../../src/server/assistant/assistant.service';
 
 describe('Data Integrity & Invoice End-to-End Workflow (Section 50 Verification)', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let prodService: ProductService;
   let invService: InventoryService;
   let invoiceService: InvoiceService;
@@ -17,7 +17,7 @@ describe('Data Integrity & Invoice End-to-End Workflow (Section 50 Verification)
 
   beforeEach(() => {
     process.env.MOCK_AI = 'true';
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     prodService = new ProductService(db);
     invService = new InventoryService(db);

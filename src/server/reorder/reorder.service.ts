@@ -1,5 +1,4 @@
-import { DatabaseSync } from 'node:sqlite';
-import { getDb } from '../../database/connection';
+import { DatabaseSync, getDb } from '../../database/connection';
 import { ReorderItem } from '../../shared/types';
 import { ProductRow } from '../../database/types';
 import { ProductService, productService } from '../products/product.service';

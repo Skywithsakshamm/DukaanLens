@@ -1,7 +1,6 @@
-import { DatabaseSync } from 'node:sqlite';
 import bcrypt from 'bcryptjs';
 import crypto from 'node:crypto';
-import { getDb, runTransaction } from './connection';
+import { DatabaseSync, getDb, runTransaction } from './connection';
 import { runMigrations } from './migrations';
 
 export function seedDemoData(customDb?: DatabaseSync): void {

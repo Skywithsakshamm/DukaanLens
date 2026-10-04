@@ -1,5 +1,4 @@
-import { DatabaseSync } from 'node:sqlite';
-import { getDb, runTransaction } from '../../database/connection';
+import { DatabaseSync, getDb, runTransaction } from '../../database/connection';
 import { Shop } from '../../shared/types';
 import { ShopRow } from '../../database/types';
 import { config } from '../config';

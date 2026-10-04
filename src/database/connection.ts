@@ -2,6 +2,8 @@ import { DatabaseSync } from 'node:sqlite';
 import path from 'node:path';
 import fs from 'node:fs';
 
+export { DatabaseSync } from 'node:sqlite';
+
 let dbInstance: DatabaseSync | null = null;
 let currentDbPath: string | null = null;
 

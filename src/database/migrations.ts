@@ -1,5 +1,4 @@
-import { DatabaseSync } from 'node:sqlite';
-import { getDb } from './connection';
+import { DatabaseSync, getDb } from './connection';
 
 export interface Migration {
   version: number;

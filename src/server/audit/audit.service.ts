@@ -1,6 +1,5 @@
 import crypto from 'node:crypto';
-import { DatabaseSync } from 'node:sqlite';
-import { getDb } from '../../database/connection';
+import { DatabaseSync, getDb } from '../../database/connection';
 import { AuditLog } from '../../shared/types';
 import { AuditLogRow } from '../../database/types';
 

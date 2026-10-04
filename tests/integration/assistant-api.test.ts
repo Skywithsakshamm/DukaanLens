@@ -1,17 +1,17 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import { runMigrations } from '../../src/database/migrations';
 import { ProductService } from '../../src/server/products/product.service';
 import { AssistantService } from '../../src/server/assistant/assistant.service';
 
 describe('Assistant Grounded Q&A and Safe Proposal Gate', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let prodService: ProductService;
   let assistantService: AssistantService;
 
   beforeEach(() => {
     process.env.MOCK_AI = 'true';
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     prodService = new ProductService(db);
     assistantService = new AssistantService(db);

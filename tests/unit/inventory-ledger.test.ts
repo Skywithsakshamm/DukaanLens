@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import { runMigrations } from '../../src/database/migrations';
 import { InventoryService } from '../../src/server/inventory/inventory.service';
 import { ProductService } from '../../src/server/products/product.service';
 
 describe('Inventory Ledger & Atomic Transactions', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let invService: InventoryService;
   let prodService: ProductService;
 
   beforeEach(() => {
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     invService = new InventoryService(db);
     prodService = new ProductService(db);

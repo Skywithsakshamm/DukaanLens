@@ -1,16 +1,16 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import { runMigrations } from '../../src/database/migrations';
 import { InvoiceService } from '../../src/server/invoices/invoice.service';
 import { SupplierService } from '../../src/server/suppliers/supplier.service';
 
 describe('Duplicate Invoice Detection', () => {
-  let db: DatabaseSync;
+  let db: Database.Database;
   let invService: InvoiceService;
   let supService: SupplierService;
 
   beforeEach(() => {
-    db = new DatabaseSync(':memory:');
+    db = new Database(':memory:');
     runMigrations(db);
     invService = new InvoiceService(db);
     supService = new SupplierService(db);

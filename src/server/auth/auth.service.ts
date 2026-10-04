@@ -1,7 +1,6 @@
 import crypto from 'node:crypto';
 import bcrypt from 'bcryptjs';
-import { DatabaseSync } from 'node:sqlite';
-import { getDb } from '../../database/connection';
+import { DatabaseSync, getDb } from '../../database/connection';
 import { User } from '../../shared/types';
 import { UserRow, SessionRow } from '../../database/types';
 import { AuditService, auditService } from '../audit/audit.service';

@@ -1,6 +1,5 @@
 import crypto from 'node:crypto';
-import { DatabaseSync } from 'node:sqlite';
-import { getDb, runTransaction } from '../../database/connection';
+import { DatabaseSync, getDb, runTransaction } from '../../database/connection';
 import { Product, MatchStatus } from '../../shared/types';
 import { ProductRow, ProductAliasRow } from '../../database/types';
 import { normalizeProductName, calculateTokenSimilarity } from '../../shared/formatters';
