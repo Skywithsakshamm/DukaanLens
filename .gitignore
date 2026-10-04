@@ -1,0 +1,31 @@
+node_modules
+dist
+build
+coverage
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tar.gz
+*.zip
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local Data and SQLite
+data
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+uploads
+
+# IDE & Tool files
+.vscode
+.idea
+*.swp
+.gemini
+.system_generated
